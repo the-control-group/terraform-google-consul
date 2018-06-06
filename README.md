@@ -13,15 +13,19 @@
 | consul_serf_lan_port | Port used to gossip over LAN. | string | `8301` | no |
 | consul_serf_wan_port | Port used to gossip over WAN. | string | `8302` | no |
 | consul_server_rpc_port | Port used for communication from other agents. | string | `8300` | no |
+| disk_image | Image to use when deploying the cluster instances. | string | - | yes |
+| gcp_network | Network to attach the instances and firewall rules to. | string | - | yes |
 | gcp_project | Name of the project the cluster will be deployed to. | string | - | yes |
 | gcp_region | The region to deploy the cluster to. | string | - | yes |
+| gcp_subnetwork | Subnetwork to attach the instances and firewall rules to. | string | - | yes |
+| host_project | Host project ID if using a shared vpc. | string | `` | no |
 | http_health_check_healthy_threshold | Number of consecutive successes required. | string | `2` | no |
 | http_health_check_initial_delay | How long, in seconds, to wait before starting to run checks. | string | `50` | no |
 | http_health_check_interval | How frequently, in seconds, the HTTP health check should run. | string | `5` | no |
 | http_health_check_timeout | How long, in seconds, the check will run before signaling a failure. | string | `5` | no |
 | http_health_check_unhealthy_threshold | Number of consective failures required. | string | `2` | no |
 | machine_type | The machine type to deploy the instances as. | string | `n1-standard-1` | no |
-| network | Network to attach the instances and firewall rules to. | string | - | yes |
+| prometheus_server_tag | Tag given to the prometheus servers. | string | `prometheus-server` | no |
 | scopes | Permissions to access the Google APIs that the instances will have. | list | `<list>` | no |
-| source_image | Image to use when deploying the cluster instances. | string | - | yes |
-| subnetwork | Subnetwork to attach the instances and firewall rules to. | string | - | yes |
+| shared_vpc | Whether or not Prometheus will be deployed onto a shared vpc. | string | `false` | no |
+

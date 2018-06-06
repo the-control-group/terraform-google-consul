@@ -35,6 +35,17 @@ variable "disk_image" {
 }
 
 /// Optional
+variable "shared_vpc" {
+  description = "Whether or not Prometheus will be deployed onto a shared vpc."
+  default     = "false"
+}
+
+variable "host_project" {
+  description = "Host project ID if using a shared vpc."
+  type        = "string"
+  default     = ""
+}
+
 variable "client_tag" {
   description = "The tag that will be appplied to clients of the consul cluster. Firewally rules will allow only instances with this tag to communicate with the cluster."
   type        = "string"
