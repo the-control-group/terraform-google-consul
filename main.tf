@@ -138,7 +138,8 @@ resource "google_compute_firewall" "consul-exporter-communication" {
 resource "google_compute_firewall" "svpc-consul-cluster-communication" {
   count   = "${var.shared_vpc == 1 ? 1 : 0}"
   name    = "${var.cluster_name}-cluster-communication"
-  network = "${var.host_network}"
+  network = "${var.gcp_network}"
+  project = "${var.host_project}"
 
   allow {
     protocol = "tcp"
@@ -167,7 +168,8 @@ resource "google_compute_firewall" "svpc-consul-cluster-communication" {
 resource "google_compute_firewall" "svpc-consul-client-communication" {
   count   = "${var.shared_vpc == 1 ? 1 : 0}"
   name    = "${var.cluster_name}-client-communication"
-  network = "${var.host_network}"
+  network = "${var.gcp_network}"
+  project = "${var.host_project}"
 
   allow {
     protocol = "tcp"
@@ -185,7 +187,8 @@ resource "google_compute_firewall" "svpc-consul-client-communication" {
 resource "google_compute_firewall" "svpc-consul-exporter-communication" {
   count   = "${var.shared_vpc == 1 ? 1 : 0}"
   name    = "${var.cluster_name}-prometheus-communication"
-  network = "${var.host_network}"
+  network = "${var.gcp_network}"
+  project = "${var.host_project}"
 
   allow {
     protocol = "tcp"
