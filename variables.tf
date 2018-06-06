@@ -37,7 +37,7 @@ variable "disk_image" {
 /// Optional
 variable "shared_vpc" {
   description = "Whether or not Prometheus will be deployed onto a shared vpc."
-  default     = "false"
+  default     = false
 }
 
 variable "host_project" {
