@@ -67,10 +67,10 @@ resource "google_compute_region_instance_group_manager" "consul-group-manager" {
     min_ready_sec         = 50
   }
 
-  auto_healing_policies {
+  /*auto_healing_policies {
     health_check      = "${google_compute_health_check.consul-health-check.self_link}"
     initial_delay_sec = "${var.http_health_check_initial_delay}"
-  }
+  }*/
 }
 
 resource "google_compute_firewall" "consul-cluster-communication" {
