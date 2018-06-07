@@ -35,6 +35,11 @@ variable "disk_image" {
 }
 
 /// Optional
+variable "additional_tags" {
+    description = "Additional tags to apply to the instances."
+    type = "list"
+    defautl = []
+}
 variable "shared_vpc" {
   description = "Whether or not Prometheus will be deployed onto a shared vpc."
   default     = false
