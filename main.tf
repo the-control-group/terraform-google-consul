@@ -63,7 +63,7 @@ resource "google_compute_region_instance_group_manager" "consul-group-manager" {
   rolling_update_policy {
     type                  = "PROACTIVE"
     minimal_action        = "REPLACE"
-    max_unavailable_fixed = 1
+    max_unavailable_fixed = "${var.cluster_size}"
     min_ready_sec         = 50
   }
 
