@@ -18,7 +18,7 @@ resource "google_compute_instance_template" "consul-group-template" {
   region  = "${var.gcp_region}"
 
   machine_type = "${var.machine_type}"
-  tags         = concat("${var.cluster_tag}", "${var.additional_tags}")
+  tags         = ["${concat("${var.cluster_tag}", "${var.additional_tags}")}"]
 
   labels = {
     group = "${var.cluster_tag}"
